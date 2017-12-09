@@ -31,13 +31,23 @@ var employees = [{
   "department": "Research and Development"
 }]
 
-// Create a function called 'employeeUpdater' that takes no parameters. employeeUpdater will loop over the array above and perform the following:
+// Create a function called 'employeeUpdater' that takes no parameters. employeeUpdater will loop over the array 
+// above and perform the following:
 //  1. If employee's first name is Theo, remove that employee because he just got fired.
 //  2. If the employee's first name is Lorie, change her department to 'HR'.
 //  3. Return the updated employee array.
 
 // Code here
-
+employeeUpdater = () => {
+  for (index in employees) {
+    if (employees[index].firstName == "Theo") {
+      delete employees[index]
+    } else if (employees[index].firstName == "Lorie") {
+      employees[index].department = "HR"
+    }
+  }
+  return employees
+}
 
 
 
@@ -47,15 +57,27 @@ var employees = [{
 // === PROBLEM 2 ==========
 
 
-// The array below represents IDs tied to reported workplace accidents. An employee accidentally entered in duplicates to array, making it look as though there are more accidents this year than there actually are. 
-// 1. Write a function called 'removeDuplicates' that will remove all duplicate entries in the workplaceAccidents array.
+// The array below represents IDs tied to reported workplace accidents. An employee accidentally entered in 
+// duplicates to array, making it look as though there are more accidents this year than there actually are. 
+// 1. Write a function called 'removeDuplicates' that will remove all duplicate entries in the workplaceAccidents
+//  array.
 // 2. Use nested for loops to check for duplicate numbers, and then remove the duplicates from the array.
 // 3. Return the updated array.
 
 var workplaceAccidents = [12, 56, 44, 3, 29, 56, 56, 3, 7, 12];
 
 // Code here
+removeDuplicates = () => {
 
+  for (i in workplaceAccidents) {
+    for (index in workplaceAccidents) {
+      if (workplaceAccidents[index] == workplaceAccidents[i] && i != index) {
+        workplaceAccidents.splice(index, 1)
+      }
+    }
+  }
+  return workplaceAccidents
+}
 
 
 
@@ -87,7 +109,13 @@ var cat = {
 var grumpyActivity;
 var fluffy2ndFriend;
 
-
+for (index in cat.catFriends) {
+  if (cat.catFriends[index].name == "Grumpy") {
+    grumpyActivity = cat.catFriends[index].activities[1]
+  } else {
+    fluffy2ndFriend = cat.catFriends[1].name
+  }
+}
 
 
 
@@ -95,7 +123,8 @@ var fluffy2ndFriend;
 
 // === PROBLEM 4 ==========
 
-// Below is some information about my car. As you can see, I am not the best driver. I have caused a few accidents. Please update this driving record so that I can feel better about my driving skills.
+// Below is some information about my car. As you can see, I am not the best driver. I have caused a few 
+// accidents. Please update this driving record so that I can feel better about my driving skills.
 
 // 1. Write a function called recordCleaner.
 // 2. Loop over the accidents array.
@@ -124,7 +153,11 @@ var myCar = {
 
 // Code here
 
-
+recordCleaner = () => {
+  for (index in myCar.accidents) {
+    myCar.accidents[index].atFaultForAccident = false
+  }
+}
 
 
 
@@ -143,6 +176,17 @@ var myCar = {
 
 var numsArr = [ [1, 2, 3, 4], [5, 6], [7, 8, 9, 10, 11]];
 
-
+looper = () => {
+  for (i in numsArr) {
+    for (index in numsArr[i]) {
+      if (numsArr[i][index] % 2 != 0) {
+        numsArr[i][index] = "odd"
+      } else {
+        numsArr[i][index] = "even"
+      }
+    }
+  }
+  return numsArr
+}
 
 
